@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Bulk Delete Terminal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <div class="terminal-button"></div>
+                <div class="terminal-button"></div>
+                <div class="terminal-button"></div>
+            </div>
+            <div class="terminal-title">Gmail Bulk Delete Tool v2.0 - Integrated</div>
+        </div>
+        <div class="terminal-body" id="terminal">
+            <div class="terminal-line">
+                <span class="success">Gmail Bulk Delete Tool - Integrated Terminal & API</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">==========================================================</span>
+            </div>
+            <div class="terminal-line">
+                <span class="info">Select mode: Demo (simulation) or Live (real Gmail API)</span>
+            </div>
+            <div class="terminal-line">
+                <span class="info">Live mode requires Google OAuth authentication</span>
+            </div>
+            <div class="terminal-line">
+                <span class="cursor"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="control-panel">
+        <h3>Mode & Controls</h3>
+        
+        <div class="mode-selector">
+            <div class="mode-label">Select Mode:</div>
+            <button class="mode-button active" id="demoModeBtn">Demo Mode</button>
+            <button class="mode-button" id="liveModeBtn">Live API</button>
+        </div>
+        
+        <div id="authStatus" class="auth-status auth-pending" style="display: none;">
+            Not Authenticated
+        </div>
+        
+        <button class="control-button" id="authBtn" style="display: none;">Authenticate Gmail</button>
+        <button class="control-button" id="startBtn">Start Process</button>
+        <button class="control-button" id="resetBtn">Reset Terminal</button>
+        <button class="control-button" id="skipBtn">Skip to End</button>
+        
+        <div class="mode-display">
+            <div class="mode-display-label">Current Mode:</div>
+            <div id="currentMode" class="mode-display-value">Demo Mode</div>
+        </div>
+    </div>
+    
+    <div class="stats-panel">
+        <h3>Session Stats</h3>
+        <div class="stat-item">
+            <span>Mode:</span>
+            <span class="stat-value" id="statMode">Demo</span>
+        </div>
+        <div class="stat-item">
+            <span>Emails Found:</span>
+            <span class="stat-value" id="emailsFound">0</span>
+        </div>
+        <div class="stat-item">
+            <span>Deleted:</span>
+            <span class="stat-value" id="emailsDeleted">0</span>
+        </div>
+        <div class="stat-item">
+            <span>Time Saved:</span>
+            <span class="stat-value" id="timeSaved">0 min</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+        <div class="progress-text">
+            Progress: <span id="progressText">0%</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
